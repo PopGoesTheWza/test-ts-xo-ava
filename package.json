@@ -1,0 +1,51 @@
+{
+  "name": "test-ts-xo-ava",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prepublish": "npm run format && npm run lint && npm run test && npm run build",
+    "build": "tsc",
+    "format": "prettier \"**.{ts,json}\" --write --ignore-unknown",
+    "lint": "xo --quiet",
+    "lint:fix": "xo --fix",
+    "test": "ava"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "ava": "^6.1.3",
+    "prettier": "^3.3.3",
+    "tsimp": "^2.0.11",
+    "typescript": "^5.6.2",
+    "xo": "^0.59.3"
+  },
+  "xo": {
+    "ignores": [
+      "**.js"
+    ],
+    "space": 2,
+    "rules": {},
+    "prettier": true
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "files": [
+      "**/*.spec.ts"
+    ],
+    "nodeArguments": [
+      "--import=tsimp/import"
+    ]
+  }
+}
