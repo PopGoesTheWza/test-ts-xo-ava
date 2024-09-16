@@ -41,3 +41,9 @@ Following `npm install`, the script `prepublish` is executed to perform the foll
 
   1 test passed
 ```
+
+## Solution
+
+After upgrading `typescript`, AVA crashes. Official documentation [hinted at `tsimp`](https://github.com/avajs/ava/blob/main/docs/recipes/typescript.md#enabling-avas-support-for-typescript-test-files) as the solution, but when in place, AVA consitently times out without running any tests. The [tentative solution](https://github.com/avajs/ava/blob/main/docs/08-common-pitfalls.md#timeouts-because-a-file-failed-to-exit) to solve the timeout issues proved to be a dead-end.
+
+I finally ran out [a discution introducing `ts-run`](https://github.com/avajs/ava/discussions/3303) which worked perfectly.
